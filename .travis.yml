@@ -1,0 +1,11 @@
+dist: trusty
+
+jobs:
+  include:
+    - stage: build docker image
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build . -t meli-challenge
+        - docker images
+        - docker tag meli-challenge $DOCKER_USERNAME/meli-challenge:latest
+        - docker push $DOCKER_USERNAME/meli-challenge:latest
