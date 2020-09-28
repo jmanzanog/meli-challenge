@@ -105,7 +105,7 @@ curl --location --request GET 'http://localhost:4500/health'
 ### Comentarios  Mejoras
 * CI  agregar jobs al travis CI file para agregar continus integration (unit test, integration test, lint tools (SonarQube)).
 * CD el proyecto utiliza travis CI para construir la imagen de docker y subirla al Docker Hub pero no la está desplegando en un ambiente productivo (continus delivery) así que se podría agregar este Job
-* La aplicación usa postgresql database para hacer un cache de la información yo cambiaria postgrest por REDIS o MEMCACHED database que están obtimizadas para resolver estos problemas
+* La aplicación usa postgresql database para hacer un cache de la información yo cambiaria postgrest por REDIS o MEMCACHED database que están optimizadas para resolver estos problemas
 * La aplicación ya esta dockerizada así que el paso siguiente es usar kubernetes para escalarla horizontalmente 
 
  
