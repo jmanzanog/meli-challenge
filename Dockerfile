@@ -7,7 +7,7 @@ RUN apk add --no-cache \
 RUN [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf
 
 ENV PATH /usr/local/go/bin:$PATH
-ENV GOLANG_VERSION 1.15.2
+ENV GOLANG_VERSION 1.16.7
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:$PATH
 ENV GO111MODULE=on \
@@ -38,15 +38,15 @@ RUN set -eux; \
 		x86) export GO386='387' ;; \
 	esac; \
 	\
-	url='https://storage.googleapis.com/golang/go1.15.2.src.tar.gz'; \
-	sha256='28bf9d0bcde251011caae230a4a05d917b172ea203f2a62f2c2f9533589d4b4d'; \
+	url='https://storage.googleapis.com/golang/go1.16.7.src.tar.gz'; \
+	sha256='1a9f2894d3d878729f7045072f30becebe243524cf2fce4e0a7b248b1e0654ac'; \
 	\
 	wget -O go.tgz.asc "$url.asc"; \
 	wget -O go.tgz "$url"; \
 	echo "$sha256 *go.tgz" | sha256sum -c -; \
 	\
 	export GNUPGHOME="$(mktemp -d)"; \
-	gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys 'EB4C 1BFD 4F04 2F6D DDCC EC91 7721 F63B D38B 4796'; \
+	gpg --batch --keyserver pgp.mit.edu --recv-keys 'EB4C 1BFD 4F04 2F6D DDCC EC91 7721 F63B D38B 4796'; \
 	gpg --batch --verify go.tgz.asc go.tgz; \
 	gpgconf --kill all; \
 	rm -rf "$GNUPGHOME" go.tgz.asc; \
