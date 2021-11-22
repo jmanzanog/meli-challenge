@@ -108,5 +108,4 @@ curl --location --request GET 'http://localhost:4500/health'
 * La aplicación usa postgresql database para hacer un cache de la información yo cambiaria postgrest por REDIS o MEMCACHED database que están optimizadas para resolver estos problemas
 * La aplicación ya esta dockerizada así que el paso siguiente es usar kubernetes para escalarla horizontalmente 
 
- 
- 
+some test
